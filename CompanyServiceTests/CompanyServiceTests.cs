@@ -1,5 +1,10 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
+/// <summary> Company Service Testing </summary>
+/// <author>Svitlana Bakun</author>
+/// <project>CompanyServiceTests</project>
+/// <version>1.0.0</version>
+
 namespace CompanyService.Tests;
 
 [TestClass()]

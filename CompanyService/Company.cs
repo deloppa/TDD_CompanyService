@@ -1,4 +1,9 @@
-﻿namespace CompanyService;
+﻿/// <summary> Company class </summary>
+/// <author>Svitlana Bakun</author>
+/// <project>CompanyService</project>
+/// <version>1.0.0</version>
+
+namespace CompanyService;
 public class Company
 {
     private Company _parent;

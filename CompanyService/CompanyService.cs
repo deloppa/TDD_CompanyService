@@ -1,4 +1,9 @@
-﻿namespace CompanyService;
+﻿/// <summary> Company Service Interface Implementation </summary>
+/// <author>Svitlana Bakun</author>
+/// <project>CompanyService</project>
+/// <version>1.0.0</version>
+
+namespace CompanyService;
 public class CompanyService : ICompanyService
 {
     public long GetEmployeeCountForCompanyAndChildren(Company company, List<Company> companies)
