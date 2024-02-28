@@ -3,7 +3,26 @@ public class CompanyService : ICompanyService
 {
     public long GetEmployeeCountForCompanyAndChildren(Company company, List<Company> companies)
     {
-        return 0;
+        if (company == null || companies == null || !companies.Any()) return 0;
+
+        List<Company> children = new List<Company>();   
+        Queue<Company> childrenToCheck = new Queue<Company>();
+        childrenToCheck.Enqueue(company);
+
+        while(childrenToCheck.Count > 0)
+        {
+            Company current = childrenToCheck.Dequeue();
+            children.Add(current);
+
+            foreach(Company c in companies) 
+            { 
+                if(c.Parent == current) childrenToCheck.Enqueue(c);
+            }
+        }
+
+        long result = children.Sum(child => child.EmployeesCount);
+
+        return result;
     }
 
     public Company GetTopLevelParent(Company child)

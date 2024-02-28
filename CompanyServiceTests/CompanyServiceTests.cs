@@ -54,4 +54,66 @@ public class CompanyServiceTests
         Assert.AreEqual(_main, result);
     }
 
+    [TestMethod()]
+    public void WhenCompanyIsNull_Then0()
+    {
+        long result = companyService.GetEmployeeCountForCompanyAndChildren(null, _companies);
+        Assert.AreEqual(0, result);
+    }
+
+    [TestMethod()]
+    public void WhenListIsNull_Then0()
+    {
+        long result = companyService.GetEmployeeCountForCompanyAndChildren(_main, null);
+        Assert.AreEqual(0, result);
+    }
+
+    [TestMethod()]
+    public void WhenListIsEmpty_Then0()
+    {
+        long result = companyService.GetEmployeeCountForCompanyAndChildren(_main, new List<Company>());
+        Assert.AreEqual(0, result);
+    }
+
+    [TestMethod()]
+    public void WhenCompanyIsNullAndListIsEmpty_Then0()
+    {
+        long result = companyService.GetEmployeeCountForCompanyAndChildren(null, new List<Company>());
+        Assert.AreEqual(0, result);
+    }
+
+    [TestMethod()]
+    public void WhenCompanyIsNullAndListIsNull_Then0()
+    {
+        long result = companyService.GetEmployeeCountForCompanyAndChildren(null, null);
+        Assert.AreEqual(0, result);
+    }
+
+    [TestMethod()]
+    public void WhenCompanyIsMain_ThenCompanyEmployeesEquals23()
+    {
+        long result = companyService.GetEmployeeCountForCompanyAndChildren(_main, _companies);
+        Assert.AreEqual(23, result);
+    }
+
+    [TestMethod()]
+    public void WhenCompanyIsDeveloper_ThenCompanyEmployeesEquals8()
+    {
+        long result = companyService.GetEmployeeCountForCompanyAndChildren(_developer, _companies);
+        Assert.AreEqual(8, result);
+    }
+
+    [TestMethod()]
+    public void WhenCompanyIsManager_ThenCompanyEmployeesEquals18()
+    {
+        long result = companyService.GetEmployeeCountForCompanyAndChildren(_manager, _companies);
+        Assert.AreEqual(18, result);
+    }
+
+    [TestMethod()]
+    public void WhenCompanyIsLawer_ThenCompanyEmployeesEquals1()
+    {
+        long result = companyService.GetEmployeeCountForCompanyAndChildren(_lawer, _companies);
+        Assert.AreEqual(1, result);
+    }
 }
